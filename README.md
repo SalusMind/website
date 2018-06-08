@@ -1,7 +1,9 @@
 # SalusMind
-## Mental Health Monitoring Service
 
 SalusMind is a service offered to organizations and schools to prevent tragedies.
+
+
+## Database
 
 ### Organizations
 * id
@@ -37,3 +39,4 @@ SalusMind is a service offered to organizations and schools to prevent tragedies
     * threat-level
     * tags
         * name
+        * type
