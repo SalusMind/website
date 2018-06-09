@@ -1,5 +1,6 @@
 env/
 .idea/
+*.pyc
 
 # User-specific stuff
 .idea/**/workspace.xml
