@@ -1,0 +1,56 @@
+.hero.is-white a.navbar-item:hover, .hero.is-white a.navbar-item.is-active, .hero.is-white .navbar-link:hover, .hero.is-white .navbar-link.is-active {
+    background-color:transparent;
+}
+
+.navbar-item img {
+    max-height:50px;
+    height: 100%;
+}
+
+.number {
+    background-color: #000000;
+    color:#ffffff;
+    position: absolute;
+    z-index:10;
+    left:-15px;
+    top:-15px;
+    min-width: 2em;
+}
+
+.box {
+	position: relative;
+}
+
+.spacing-sm {
+    height:8px;
+}
+
+
+.spacing-lg {
+    height:5rem;
+}
+
+.spacing-md {
+    height:2rem;
+}
+
+.footer {
+    color:#ffffff;
+    background-color:#000000;
+}
+
+.input:focus, .input.is-focused, .input:active, .input.is-active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.input {
+    background-color:#ffffff;
+    border:1;
+    box-shadow:none;
+    color:#000000;
+}
+
+.input::placeholder {
+    color:#000000;
+}

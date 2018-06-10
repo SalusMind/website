@@ -1,1 +1,191 @@
-running...
+{% include 'components/head.html' %}
+
+<section class="hero is-black is-medium">
+
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Salus Mind">
+          </a>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              Login
+            </a>
+            <a class="navbar-item">
+              Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Mental Health Monitoring Service
+      </h1>
+        <h3 class="subtitle">Preventing Teen Suicides and Mass School Shootings Is Our #1 Priority</h3>
+      <a class="button is-white is-medium">Start Saving Lives</a>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section has-text-centered">
+    <h1 class="title">About Us.</h1>
+    <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+            <p>
+                Salus Mind is a service that allows organizations and schools in particular to be informed
+                of their students mental health based on the content of their social media feeds without
+                jeopardizing their privacy.
+            </p>
+            <p>
+
+            </p>
+        </div>
+        <div class="column"></div>
+    </div>
+</section>
+
+<section class="section has-text-centered">
+    <h1 class="title">How it Works.</h1>
+    <div class="spacing-md"></div>
+    <div class="columns">
+
+        <div class="column is-3"></div>
+
+        <div class="column">
+          <div class="box">
+            <div class="number">1</div>
+            <div class="spacing-sm"></div>
+            <span class="icon fa-2x">
+                <i class="fa fa-user"></i>
+            </span>
+            <div class="spacing-sm"></div>
+            <h3 class="subtitle">Sign Up and Connect Social Media Accounts</h3>
+            <p>
+                We only require your full name to identify you. Connect all your social media accounts, or whatever you are comfortable with.
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="number">2</div>
+            <div class="spacing-sm"></div>
+            <span class="icon fa-2x">
+                <i class="fa fa-sitemap"></i>
+            </span>
+            <div class="spacing-sm"></div>
+            <h3 class="subtitle">Join an Organization</h3>
+            <p>
+                This can be your school, therapist, or even your friends and family. Moderators see exactly the same information you and everyone else sees.
+            </p>
+          </div>
+        </div>
+
+        <div class="column is-3"></div>
+    </div>
+
+
+    <div class="columns">
+
+        <div class="column is-3"></div>
+
+        <div class="column">
+          <div class="box">
+            <div class="number">3</div>
+            <div class="spacing-sm"></div>
+            <span class="icon fa-2x">
+                <i class="fa fa-cogs"></i>
+            </span>
+            <div class="spacing-sm"></div>
+            <h3 class="subtitle">Scan Social Media Feeds</h3>
+            <p>
+                Salus Mind will monitor your social media feeds and use artificial intelligence to tag posts it considers harmful.
+                It does not save your data nor does anyone even see your data. You have the power to control what gets scanned and can cancel the service at any time.
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="number">4</div>
+            <div class="spacing-sm"></div>
+            <span class="icon fa-2x">
+                <i class="fa fa-address-card"></i>
+            </span>
+            <div class="spacing-sm"></div>
+            <h3 class="subtitle">View Scan Results</h3>
+            <p>
+                You and everyone in your organization can view the results of the monitoring process withholding everyone's identity.
+                Moderators will be notified if the critical threat level has been exceeded by any person.
+                The organization can then request the identity of the individual.
+            </p>
+          </div>
+        </div>
+
+        <div class="column is-3"></div>
+</div>
+
+</section>
+
+
+<section class="section has-text-centered">
+    <h1 class="title">Why Trust Us.</h1>
+    <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+            <p>
+                Salus Mind is an open source and open data platform. We do not keep any data obtained from social media
+                accounts but instead just pass it through a filter. Anyone can view the source code and the database.
+            </p>
+            <div class="spacing-md"></div>
+            <div class="columns">
+                <div class="column">
+                    <a href="" class="button is-medium is-fullwidth">
+                        <span class="icon">
+                            <i class="fa fa-github"></i>
+                        </span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+
+                <div class="column">
+                    <a class="button is-medium is-fullwidth">
+                        <span class="icon">
+                            <i class="fa fa-database"></i>
+                        </span>
+                        <span>Database</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="column"></div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+        <img src="{{ url_for('static', filename='img/logo-sm.png') }}"/>
+        <p style="font-weight:bold;">
+            "Salus populi suprema lex esto"
+        </p>
+      <small>
+        &copy; 2018 Salus Mind, Inc.
+      </small>
+    </div>
+  </div>
+</footer>
+
+{% include 'components/endScripts.html' %}
