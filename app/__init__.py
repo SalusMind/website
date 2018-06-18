@@ -46,3 +46,8 @@ def signup():
 @app.route('/forgot')
 def forgot():
     return render_template('forgot.html')
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
