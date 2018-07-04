@@ -54,3 +54,49 @@
 .input::placeholder {
     color:#000000;
 }
+
+.section-sm {
+    padding:1.5rem;
+}
+
+
+.tag:not(body) {
+    font-size:1.2rem;
+    border-radius:1rem;
+    height:3rem;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
+.card {
+    width:250px;
+}
+
+.image-logo{
+    max-width: 7rem;
+    max-height: 7rem;
+    margin-left: 4.2rem;
+    margin-top: 1.5rem;
+}
+
+#dropdown {
+    position:absolute;
+    right:0;
+}
+
+#dropdown .dropdown-trigger a {
+    color:#999999;
+}
+
+
+.is-grey-bg {
+    background-color:#eeeeee;
+}
+
+.is-grey-txt {
+    color:#999999;
+}
+
+#flags .column{
+    padding:1.5rem;
+}

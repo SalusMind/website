@@ -10,27 +10,32 @@
                 <div class="columns">
                     <div class="column"></div>
                     <div class="column">
-                        <div class="box">
+                        <div id="status"></div>
+			<div class="spacing-sm"></div>
+                        <div class="box"> 
                             <div class="columns">
                                 <div class="column" style="padding-bottom:0">
                                     <div class="field">
-                                        <input class="input is-medium" type="text" placeholder="first name">
+                                        <input id="fname" class="input is-medium" type="text" placeholder="first name">
                                     </div>
                                 </div>
                                 <div class="column" style="padding-bottom:0">
                                     <div class="field">
-                                        <input class="input is-medium" type="text" placeholder="last name">
+                                        <input id="lname" class="input is-medium" type="text" placeholder="last name">
                                     </div>
                                 </div>
                             </div> 
                             <div class="field">
-                                <input class="input is-medium" type="text" placeholder="email">
+                                <input id="email" class="input is-medium" type="text" placeholder="email">
                             </div>
                             <div class="field">
-                                <input class="input is-medium" type="password" placeholder="password">
+                                <input id="password" class="input is-medium" type="password" placeholder="password">
+                            </div>
+			    <div class="field">
+                                <input id="confirm" class="input is-medium" type="password" placeholder="confirm password">
                             </div>
                             <div class="spacing-sm"></div>
-                            <a class="button is-medium is-black is-fullwidth">Sign Up</a>
+                            <a id="signupBtn" class="button is-medium is-black is-fullwidth">Sign Up</a>
                         </div>
                         <div class="spacing-sm"></div>
                         <a href="/login" class="button is-medium is-fullwidth">Login</a>
@@ -41,4 +46,41 @@
             </div>
           </div>
         </section>
+
+
+
+<script>
+    $('#signupBtn').click(function(){
+        let fname = $('#fname').val();
+	let lname = $('#lname').val();
+        let email = $('#email').val();
+        let password = $('#password').val();
+	let confirm = $('#confirm').val();
+
+        if(fname.length > 0 && lname.length > 0 && email.length > 0 && password.length > 0){
+            if(password == confirm){
+            	$('#signupBtn').addClass('is-loading');
+            	$.ajax({ 
+			type: 'POST',
+			url: "/api/user/signup",
+			data: JSON.stringify({'fname': fname, 'lname': lname, 'email': email, 'password': password}),
+			contentType: "application/json; charset=utf-8",
+			dataType: 'json',
+			success: function(data) {
+  	                    $('#status').html(data.message);
+                   	    $('#signupBtn').removeClass('is-loading');
+                            $('#password').val('');
+                            $('#confirm').val('');
+               		}
+	    	});
+	    } else{
+		$('#status').html('Passwords do not match.')
+	    }
+	}
+    });
+</script>
+
+
+
+
 {% include 'components/endScripts.html' %}

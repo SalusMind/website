@@ -10,15 +10,17 @@
                 <div class="columns">
                     <div class="column"></div>
                     <div class="column">
+                        <div id="status"></div>
+                        <div class="spacing-sm"></div>
                         <div class="box">
                             <div class="field">
-                                <input class="input is-medium" type="text" placeholder="username">
+                                <input id="email" class="input is-medium" type="email" placeholder="email">
                             </div>
                             <div class="field">
-                                <input class="input is-medium" type="password" placeholder="password">
+                                <input id="password" class="input is-medium" type="password" placeholder="password">
                             </div>
                             <div class="spacing-sm"></div>
-                            <a class="button is-medium is-black is-fullwidth">Login</a>
+                            <a id="loginBtn" class="button is-medium is-black is-fullwidth">Login</a>
                         </div>
                         <div class="spacing-sm"></div>
                         <a href="/forgot" class="button is-medium is-fullwidth">Forgot Password</a>
@@ -32,4 +34,31 @@
             </div>
           </div>
         </section>
+
+<script>
+    $('#loginBtn').click(function(){
+        let email = $('#email').val();
+        let password = $('#password').val();
+
+        if(email.length > 0 && password.length > 0){
+            $('#loginBtn').addClass('is-loading');
+            $.ajax({ 
+		type: 'POST',
+		url: "/api/user/login",
+		data: JSON.stringify({'email': email, 'password': password}),
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data) {
+  	            if(data.status){
+                        window.location.replace('/profile');
+                    } else {
+                        $('#status').html(data.message);
+                    }
+                    $('#loginBtn').removeClass('is-loading');
+               }
+	    });
+	}
+    });
+</script>
+
 {% include 'components/endScripts.html' %}

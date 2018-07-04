@@ -1,4 +1,18 @@
 {% include 'components/head.html' %}
+
+<script>
+  var config = {
+    apiKey: "AIzaSyBifQ70GvzeN1XLlyt8EiVRgn8ZGVTXDF4",
+    authDomain: "salus-mind.firebaseapp.com",
+    databaseURL: "https://salus-mind.firebaseio.com",
+    projectId: "salus-mind",
+    storageBucket: "salus-mind.appspot.com",
+    messagingSenderId: "373543593960"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
 <section class="hero is-small is-black">    
     <div class="hero-head">
 	<nav class="navbar">
@@ -26,45 +40,176 @@
  
     <div class="hero-body">
         <div class="container">
-          <h1 class="title"><a class="navbar-item">Hi, {{profile['given_name']}}</a></h1>
+          <h1 class="title"><a class="navbar-item">Hi, {{user['fname']}}.</a></h1>
         </div>
     </div>
 </section>
 
-<section class="hero is-medium has-text-centered">
-    <div class="spacing-lg"></div>
-    <div class="container"> 
-        <div class="hero-head">
-            <h1 class="title has-text-centered">My Profile.</h1>
-        </div>
-        
-        <div class="hero-body">
-            <p>
-                Nothing to show...
-            </p>
+
+<section class="section">
+    <div class="container">    
+        <h1 class="title has-text-centered">My Profile.</h1>
+        <div id="profile">
+            <section class="section-sm">
+                <div class="columns">
+                    <div class="column is-3">
+                        <p>
+                            <strong>ID:</strong> {{user._id}}
+                        </p>
+                    </div>
+                    <div class="column">
+                        <div class="progress--bar progress--5"></div>
+                    </div>
+                </div>
+            </section>            
+
+            <section class=="section-sm">
+                <h3 class="subtitle is-4 has-text-centered">Perception.</h3> 
+               
+                <div class="columns">
+                    <div class="column">
+                        <center>
+                            <div class="progress--circle progress--0">
+                                <div class="progress__number">Self-Others</div>
+                            </div>
+                        </center>
+                    </div>
+                    <div class="column">
+                        <center>
+                            <div class="progress--circle progress--0">
+                                <div class="progress__number">Self-Self</div>
+                            </div>
+                        </center>
+                    </div>
+                    <div class="column">
+                        <center>
+                            <div class="progress--circle progress--0">
+                                <div class="progress__number">Others-Self</div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </section>
+
+            <section id="flags" class="section-sm">
+                <h3 class="subtitle is-4 has-text-centered">Flags.</h3>
+                
+                <div class="columns">
+                    <div class="column">
+                        <span>Weapons Possession</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                    <div class="column">
+                        <span>Drug Abuse</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                    <div class="column">
+                        <span>Alcohol Abuse</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                </div> 
+
+                <div class="columns">
+                    <div class="column">
+                        <span>Potentially Violent</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                    <div class="column">
+                        <span>Sexually Explicit</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                    <div class="column">
+                        <span>Seemingly Withdrawn</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                </div> 
+
+                <div class="columns">
+                    <div class="column">
+                        <span>Racism</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                    <div class="column">
+                        <span>Sexism</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                    <div class="column">
+                        <span>X-phobic</span>
+                        <div class="progress--bar progress--0"></div>
+                    </div>
+                </div> 
+
+            </section>
+
+            <section class="section-sm">
+                <h3 class="subtitle is-4 has-text-centered">Misc.</h3>
+                <div class="has-text-centered">
+                    <!--<div class="tag">No pets</div>-->
+                    <p>Nothing yet...</p>
+                </div>
+            </section>
         </div>
     </div>
 </section>
 
-<section class="hero is-medium has-text-centered">
+
+<section class="section is-small is-grey-bg">
     <div class="container">
-        <div class="box">
-            <div class="hero-head">
-                <h1 class="title">Registered Organizations.</h1>
+        <div id="dropdown" class="dropdown is-right is-hoverable">
+             <div class="dropdown-trigger">
+                <a aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span class="icon is-large">
+                        <i class="fa fa-2x fa-ellipsis-v"></i>
+                    </span>
+                </a>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <a class="dropdown-item">Join</a>
+                    <a class="dropdown-item">Create</a>
+                </div>
+             </div>
+        </div> 
+
+        <h1 class="title is-grey-txt has-text-centered">Registered Organizations.</h1>
+    
+        <section class="section-sm">
+            <div class="columns">
+                <div class="column">
+                    <center>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-2by1">
+                                    <img class="image-logo" src="https://salusmind.com/static/img/logo-sm-2.png" alt="Salus Mind">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="subtitle is-5 has-text-centered">Salus Mind</h3>
+                            </div>
+                            <footer class="card-footer">
+                                <span class="card-footer-item">
+                                    <span class="icon">
+                                          <i class="fa fa-unlock"></i>
+                                    </span>
+                                    <span>&nbsp;Public</span>
+                                </span>
+                                <span class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <span>&nbsp;312</span>
+                                </span>
+                            </footer>
+                        </div>
+                    </center>
+                </div>
             </div>
-            <div class="hero-body">
-                <p>
-                    Nothing to show...
-                </p>
-            </div>
-            <div class="hero-footer">
-                <a class="button is-black is-medium is-fullwidth">Join</a>
-            </div>
-        </div>
+        </section>   
     </div>
 </section>
 
-<section class="section is-medium has-text-centered">
+
+<section class="section is-small has-text-centered">
     <div class="container">
         <h1 class="title">Connected Accounts.</h1>
         <div class="spacing-sm"></div>
@@ -78,7 +223,13 @@
                     </span>
                     <div class="spacing-sm"></div>
                     <h3 class="subtitle">Facebook</h3>
-                    <a class="button is-black is-medium is-fullwidth">Connect</a>
+
+                    {% if 'facebook' in user %}
+                        <a id="facebookBtn" class="button is-white is-medium is-fullwidth">Remove</a>
+                    {% else %}
+                        <a id="facebookBtn" class="button is-black is-medium is-fullwidth">Connect</a>
+                    {% endif %}
+
                 </div>
             </div>
 
@@ -90,7 +241,12 @@
                     </span>
                     <div class="spacing-sm"></div>
                     <h3 class="subtitle">Twitter</h3>
-                    <a class="button is-black is-medium is-fullwidth">Connect</a>
+
+                    {% if 'twitter' in user %}
+                        <a id="twitterBtn" class="button is-white is-medium is-fullwidth">Remove</a>
+                    {% else %}
+                        <a id="twitterBtn" class="button is-black is-medium is-fullwidth">Connect</a>
+                    {% endif %}
                 </div>
             </div>
 
@@ -103,7 +259,7 @@
                     </span>
                     <div class="spacing-sm"></div>
                     <h3 class="subtitle">Reddit</h3>
-                    <a class="button is-black is-medium is-fullwidth">Connect</a>
+                    <a class="button is-white is-medium is-fullwidth">Coming Soon</a>
                 </div>
             </div>
           
@@ -116,7 +272,12 @@
                     </span>
                     <div class="spacing-sm"></div>
                     <h3 class="subtitle">Gmail</h3>
-                    <a class="button is-black is-medium is-fullwidth">Connect</a>
+                    
+                    {% if 'gmail' in user %}
+                        <a id="gmailBtn" class="button is-white is-medium is-fullwidth">Remove</a>
+                    {% else %}
+                        <a id="gmailBtn" class="button is-black is-medium is-fullwidth">Connect</a>
+                    {% endif %}
                 </div>
             </div> 
 
@@ -125,4 +286,101 @@
 </section>
 
 {% include 'components/footer.html' %}
+
+
+<script>    
+      
+     
+
+     $("#facebookBtn").click(function() {
+        $("#facebookBtn").addClass("is-loading");
+
+        {% if 'facebook' in user %}
+        removeAccount('facebook');
+        {% else %}
+        var provider = new firebase.auth.FacebookAuthProvider();
+        provider.addScope('user_posts');
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+             var token = result.credential.accessToken;
+             connectAccount('facebook', {"accessToken": token});
+        }).catch(function(error) {
+             $("#facebookBtn").removeClass("is-loading");
+             console.log(error);
+        });
+        {% endif %}
+     });
+
+
+     
+     $("#gmailBtn").click(function() {
+        $("#gmailBtn").addClass("is-loading");
+
+        {% if 'gmail' in user %}
+        removeAccount('gmail');
+        {% else %}
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('https://www.googleapis.com/auth/gmail.readonly');
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+             connectAccount('gmail', {"accessToken": result.credential.accessToken});
+        }).catch(function(error) {
+             $("#gmailBtn").removeClass("is-loading");
+             console.log(error);
+        });
+        {% endif %}
+     });
+
+     
+     
+     $("#twitterBtn").click(function(){
+         $("twitterBtn").addClass("is-loading");
+         
+         {% if 'twitter' in user %}
+         removeAccount('twitter');
+         {% else %}
+         var provider = new firebase.auth.TwitterAuthProvider();
+         firebase.auth().signInWithPopup(provider).then(function(result) {
+             var token = result.credential.accessToken;
+             var secret = result.credential.secret;
+             connectAccount('twitter', {'token': token, 'secret': secret});
+         }).catch(function(error) {
+             $("#twitterBtn").removeClass("is-loading");
+             console.log(error);
+         });
+         {% endif %}
+     });
+
+
+
+     function connectAccount(media, account){
+           $.ajax({ 
+		type: 'POST',
+		url: "/api/user/social", 
+		data: JSON.stringify({"media": media, "account": account}),
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data) {
+                    window.location.reload();
+  	        }
+	    });
+     
+     }
+
+
+     function removeAccount(media){
+         $.ajax({
+                type: 'POST',
+                url: "/api/user/social/remove",
+                data: JSON.stringify({"media": media}),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function(data) {
+                    window.location.reload();
+                }
+            });
+     }
+
+
+</script>
+
+
 {% include 'components/endScripts.html' %}
