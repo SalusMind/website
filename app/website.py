@@ -1,10 +1,7 @@
 import os
 
-from flask import Flask
-from flask import render_template
-from flask import url_for
-from flask import redirect
-from flask import session
+from flask import Flask,render_template,session,redirect,url_for
+
 from flask_bcrypt import Bcrypt
 
 from common import config
@@ -79,3 +76,6 @@ def privacy():
 def before_request():
     config.g.bcrypt = bcrypt
 
+#  help in Running at localhost and wouldn't affect aws hosting
+if __name__ == "__main__":
+    app.run(debug=True)
